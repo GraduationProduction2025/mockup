@@ -2,15 +2,160 @@
 <html lang="ja">
 
 <head>
-    <title>
-        <title>list_question</title>
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>質問一覧</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+        }
+
+        input[type="search"] {
+            width: 40%;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+    </style>
 </head>
 
 <body>
-    <main>
-        <p>hello,world!</p>
-    </main>
+
+    <h1>質問一覧・検索</h1>
+
+    <form>
+        <label for="search">検索</label>
+        <input type="search" id="search" name="search">
+        <button type="submit">🔍 検索</button>
+        <button type="button" onclick="clearSearch()">検索クリア</button>
+        <div class="right-align">
+            <button type="button" onclick="clearSearch()">編集</button>
+            <button type="button" onclick="clearSearch()">削除</button>
+        </div>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ステータス</th>
+                <th>質問タイトル</th>
+                <th>作成者</th>
+                <th>URL</th>
+                <th>作成日</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- データ行ここから -->
+            <tr>
+                <td>作成済み</td>
+                <td>入社後アンケート</td>
+                <td>XXX XXXX</td>
+                <td><a href="http://www.hogehoge">http://www.hogehoge</a></td>
+                <td>20YY/MM/DD</td>
+            </tr>
+            <tr>
+                <td>回答済み</td>
+                <td>週末の過ごし方は？</td>
+                <td>Jane Smith</td>
+                <td><a href="https://example.com/survey2">https://example.com/survey2</a></td>
+                <td>2023-01-05</td>
+            </tr>
+            <tr>
+                <td>未回答</td>
+                <td>好きな映画は何ですか？</td>
+                <td>Alice Johnson</td>
+                <td><a href="https://example.com/survey3">https://example.com/survey3</a></td>
+                <td>2023-02-10</td>
+            </tr>
+            <tr>
+                <td>未回答</td>
+                <td>お気に入りの色は何ですか？</td>
+                <td>John Doe</td>
+                <td><a href="https://example.com/survey1">https://example.com/survey1</a></td>
+                <td>2023-01-01</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!-- データ行ここまで -->
+        </tbody>
+    </table>
+
+    <script>
+        // 検索クリアボタンのクリック時の処理
+        function clearSearch() {
+            document.getElementById('search').value = '';
+        }
+    </script>
+
 </body>
 
 </html>
