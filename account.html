@@ -6,47 +6,53 @@
 <title>新規登録</title>
 <link rel="stylesheet" href="style_nobu.css">
 </head>
-<body>
-<div>
-	<!-- ヘッダー -->
-	<header>
-	</header>
-	<!-- ヘッダー ここまで -->
-	<!-- メイン -->
-	<main>
-        <table class="tbl">
-            <tr>
-                <td><label class="lab">ユーザー名</label></th>
-            </tr>
-            <tr>
-                <td><input type="text" class="name"></td>
-            </tr>
-            <tr>
-                <td><label class="lab">パスワード</label></th>
-            </tr>
-            <tr>
-                <td><input type="text" class="pass1"></td>
-            </tr>
-            <tr>
-                <td><label class="lab">パスワード（再入力）</label></th>
-            </tr>
-            <tr>
-                <td><input type="text" class="pass2"></td>
-            </tr>
-            <tr>
-                <td><input type="button" class="add" id="add" value="登録"></td>
-            </tr>
-            <tr>
-                <td><input type="button" class="back" id="back" value="閉じる"></td>
-            </tr>
-        </table>
+<body class="account">
+<div class="form-container">
+    <label for="username">ユーザー名</label>
+    <input type="text" id="username" name="username">
+
+    <label for="password">パスワード</label>
+    <div class="password-container">
+        <input type="password" id="password1" name="password1">
+        <span id="me" class="toggle-text1" onclick="togglePasswordVisibility1()">👁</span>
+    </div>
+    
+    <label for="confirmPassword">パスワード確認</label>
+    <div class="password-container">
+        <input type="password" id="password2" name="password2">
+        <span id="me" class="toggle-text2" onclick="togglePasswordVisibility2()">👁</span>
+    </div>
+
+    <button type="button" class="add">登録</button>
+    <button type="button" class="exit">閉じる</button>
+    
+    <script>
+        function togglePasswordVisibility1() {
+            var passwordInput1 = document.getElementById('password1');
+            var toggleText1 = document.querySelector('.toggle-text1');
         
-	</main>
-	<!-- メイン ここまで -->
-	<!-- フッター -->
-	<footer>
-	</footer>
-	<!-- フッター ここまで -->
+            if (passwordInput1.type === 'password') {
+                passwordInput1.type = 'text';
+                toggleText1.textContent = '⌣';
+            } else {
+                passwordInput1.type = 'password';
+                toggleText1.textContent = '👁';
+            }
+        }
+
+        function togglePasswordVisibility2() {
+            var passwordInput = document.getElementById('password2');
+            var toggleText = document.querySelector('.toggle-text2');
+        
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleText.textContent = '⌣';
+            } else {
+                passwordInput.type = 'password';
+                toggleText.textContent = '👁';
+            }
+        }
+    </script>
 </div>
 </body>
 </html>
