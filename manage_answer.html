@@ -1,30 +1,221 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="wicth=device-width, initial-scale=1">
-<title>集計</title>
-<link rel="stylesheet" href="style_nobu.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="wicth=device-width, initial-scale=1">
+	<title>集計</title>
+	<!-- <link rel="stylesheet" href="style_nobu.css"> -->
+	<style>
+		.account {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.form-container {
+			text-align: left;
+			width: 300px;
+		}
+
+		.form-container label,
+		.form-container input {
+			display: block;
+			/*margin: 10px auto;*/
+			padding: 8px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		.add
+
+		/*form-container button*/
+			{
+			display: block;
+			margin: 10px auto;
+			padding: 8px;
+			width: auto;
+			box-sizing: border-box;
+			text-align: right;
+		}
+
+		.exit
+
+		/*form-container button*/
+			{
+			display: block;
+			margin: 0px 0px 0px 240px;
+			padding: 8px;
+			width: auto;
+			box-sizing: border-box;
+			text-align: right;
+		}
+
+		.add {
+			color: white;
+			background-color: cornflowerblue;
+		}
+
+		.exit {
+			display: block;
+			text-align: right;
+		}
+
+		.form-container .password-container {
+			display: flex;
+			align-items: center;
+		}
+
+		.form-container .password-container input {
+			flex: 1;
+		}
+
+		/*manage_answer.html*/
+		.manage {
+			display: flex;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.custom-box {
+			position: absolute;
+			/* 絶対位置指定 */
+			top: 9%;
+			/* 上端からの距離（調整可能） */
+			left: 4%;
+			/* 左端からの距離（調整可能） */
+			right: 4%;
+			bottom: 15%;
+			border: 2px solid;
+			/* 四角の線のスタイル */
+			padding: 10px;
+			/* 内部の余白（調整可能） */
+		}
+
+		.chart-container {
+			/*position: relative;
+    margin: auto;*/
+			position: absolute;
+			top: 35%;
+			left: 30%;
+			width: 200px;
+			height: 200px;
+		}
+
+		.chart {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			background: conic-gradient(#3498db 0% 45%,
+					#2ecc71 45% 73%,
+					#e74c3c 73% 88%,
+					#f39c12 88% 100%);
+		}
+
+		.chart-text {
+			position: absolute;
+			font-size: 18px;
+			color: #000;
+		}
+
+		.text-1 {
+			top: 10%;
+			left: 35%;
+			transform: translateX(-50%);
+		}
+
+		.text-2 {
+			top: 50%;
+			left: 90%;
+			transform: translate(-100%, -50%);
+		}
+
+		.text-3 {
+			bottom: 20%;
+			left: 35%;
+			transform: translateX(-50%);
+		}
+
+		.text-4 {
+			top: 40%;
+			left: 10%;
+			transform: translate(-0%, -50%);
+		}
+
+		.legend {
+			position: absolute;
+			top: 50%;
+			left: 80%;
+			transform: translate(-50%, -50%);
+			list-style: none;
+			padding: 0;
+		}
+
+		.legend-item {
+			margin-bottom: 8px;
+		}
+
+		.legend-item span {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			margin-right: 5px;
+			border-radius: 50%;
+		}
+
+		.legend-item-blue span {
+			background-color: #3498db;
+		}
+
+		.legend-item-green span {
+			background-color: #2ecc71;
+		}
+
+		.legend-item-red span {
+			background-color: #e74c3c;
+		}
+
+		.legend-item-yellow span {
+			background-color: #f39c12;
+		}
+
+		.dai {
+			position: absolute;
+			top: 5%;
+			left: 5%;
+		}
+
+		.dai2 {
+			position: absolute;
+			top: 13%;
+			left: 5%;
+		}
+	</style>
 </head>
+
 <body class="manage">
 	<div class="custom-box"></div>
-		<h1 class="dai">好きな食べ物</h1>
-		<p class="dai2">100件の回答</p>
+	<h1 class="dai">好きな食べ物</h1>
+	<p class="dai2">100件の回答</p>
 
-		<div class="chart-container">
-			<div class="chart"></div>
-			<div class="chart-text text-1">12%</div>
-			<div class="chart-text text-2">45%</div>
-			<div class="chart-text text-3">28%</div>
-			<div class="chart-text text-4">15%</div>
-		</div>
+	<div class="chart-container">
+		<div class="chart"></div>
+		<div class="chart-text text-1">12%</div>
+		<div class="chart-text text-2">45%</div>
+		<div class="chart-text text-3">28%</div>
+		<div class="chart-text text-4">15%</div>
+	</div>
 
-		<ul class="legend">
-			<li class="legend-item legend-item-blue"><span></span>いぶりがっこ</li>
-			<li class="legend-item legend-item-green"><span></span>塩昆布</li>
-			<li class="legend-item legend-item-red"><span></span>煮干し</li>
-			<li class="legend-item legend-item-yellow"><span></span>ミ＝ゴ</li>
-		</ul>
-	
+	<ul class="legend">
+		<li class="legend-item legend-item-blue"><span></span>いぶりがっこ</li>
+		<li class="legend-item legend-item-green"><span></span>塩昆布</li>
+		<li class="legend-item legend-item-red"><span></span>煮干し</li>
+		<li class="legend-item legend-item-yellow"><span></span>ミ＝ゴ</li>
+	</ul>
+
 </body>
+
 </html>
