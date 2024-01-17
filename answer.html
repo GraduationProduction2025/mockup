@@ -4,82 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>回答</title>
+    <title>answer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
-        form {
+        .answer {
+            background-color: #fff;
             padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            /* Adjust as needed */
         }
 
-        label {
+        .answer h1 {
+            text-align: center;
+            /* タイトルを中央寄せ */
+        }
+
+        .answer label,
+        .answer select,
+        .answer textarea,
+        .radio label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        select,
-        input,
-        textarea {
-            width: calc(100% - 16px);
-            padding: 8px;
-            margin-bottom: 16px;
+        .answer select,
+        .answer textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
             box-sizing: border-box;
+            resize: none;
         }
 
-        input[type="radio"] {
-            margin-right: 4px;
+        .radio {
+            display: flex;
+            justify-content: space-between;
         }
 
-        input[type="radio"]+label {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"] {
-            cursor: pointer;
-        }
-
-
-        input[type="radio"] {
-            margin-right: 4px;
-            width: 16px;
-            /* 任意のサイズに調整 */
-            height: 16px;
-            /* 任意のサイズに調整 */
-            display: inline-block;
-        }
-
-        label[for="male"],
-        label[for="female"],
-        label[for="other"] {
-            display: inline-block;
+        .radio label {
+            flex: 1;
             margin-right: 10px;
-            /* ラベルとの間隔を調整 */
+        }
+
+        .answer input[type="submit"] {
+            background-color: #4285f4;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .answer input[type="submit"]:hover {
+            background-color: #1967d2;
         }
     </style>
 </head>
 
 <body>
-    <h1>回答</h1>
     <div class="answer">
+        <h1>回答</h1>
         <p>入社後アンケート</p>
         <p>アンケートの回答をお願いします</p>
-    </div>
-    <form class="answer">
+
         <label for="age">年齢：</label>
         <select id="age" name="age">
             <option value="選択してください">年齢</option>
@@ -90,8 +91,6 @@
             <option value="50代">50代</option>
             <option value="60代以上">60代以上</option>
         </select>
-
-        <br><br>
 
         <label for="birthplace">出身地</label>
         <select name="ken">
@@ -145,29 +144,49 @@
             <option value="沖縄県">沖縄県</option>
         </select>
 
-        <br><br>
-
         <label>性別</label>
         <div class="radio">
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">男性</label>
-
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">女性</label>
-
-            <input type="radio" id="other" name="gender" value="other">
-            <label for="other">その他</label>
+            <label>
+                <input type="radio" id="male" name="gender" value="male">
+                男性
+            </label>
+            <label>
+                <input type="radio" id="female" name="gender" value="female">
+                女性
+            </label>
+            <label>
+                <input type="radio" id="other" name="gender" value="other">
+                その他
+            </label>
         </div>
-
-        <br><br>
 
         <label for="comment">コメント</label>
         <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
 
-        <br><br>
+        <input type="submit" value="回答する" onclick="saveDataToCookie()">
+    </div>
+    <script>
+        function saveDataToCookie() {
+            // 各入力フィールドの値を取得
+            var age = document.getElementById('age').value;
+            var birthplace = document.getElementsByName('ken')[0].value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var comment = document.getElementById('comment').value;
 
-        <input type="submit" value="回答する">
-    </form>
+            // データをCookieに保存
+            document.cookie = "age=" + encodeURIComponent(age) + ";";
+            document.cookie = "birthplace=" + encodeURIComponent(birthplace) + ";";
+            document.cookie = "gender=" + encodeURIComponent(gender) + ";";
+            document.cookie = "comment=" + encodeURIComponent(comment) + ";";
+
+            // コンソールにデータを表示（テスト用）
+            console.log("Data saved to cookie:");
+            console.log("Age: " + age);
+            console.log("Birthplace: " + birthplace);
+            console.log("Gender: " + gender);
+            console.log("Comment: " + comment);
+        }
+    </script>
 </body>
 
 </html>
