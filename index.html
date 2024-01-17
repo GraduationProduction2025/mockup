@@ -33,7 +33,7 @@
 
         .btn {
             background-color: #4285f4;
-            border: 3px solid #4285f4;
+            /* border: 3px solid #4285f4; */
             box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
             color: #fff;
             display: inline-block;
@@ -48,21 +48,21 @@
         }
 
         .btn:hover {
-            background-color: #fff;
-            color: #1967d2;
+            background-color: #1967d2;
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
     <main>
-        <h2>Top Page</h2>
-        <h3><button class="btn" onclick="location.href='account.html'">Account</button></h3>
-        <h3><button class="btn" onclick="location.href='login.html'">Login</button></h3>
-        <h3><button class="btn" onclick="location.href='list_ques.html'">List Questions</button></h3>
-        <h3><button class="btn" onclick="location.href='create_ques.html'">Create Question</button></h3>
-        <h3><button class="btn" onclick="location.href='answer.html'">Answer</button></h3>
-        <h3><button class="btn" onclick="location.href='manage_answer.html'">Manage Answer</button></h3>
+        <h2>トップページ</h2>
+        <h3><button class="btn" onclick="window.open('account.html', '_blank')">Account</button></h3>
+        <h3><button class="btn" onclick="window.open('login.html', '_blank')">Login</button></h3>
+        <h3><button class="btn" onclick="window.open('list_ques.html', '_blank')">List Questions</button></h3>
+        <h3><button class="btn" onclick="window.open('create_ques.html', '_blank')">Create Question</button></h3>
+        <h3><button class="btn" onclick="window.open('answer.html', '_blank')">Answer</button></h3>
+        <h3><button class="btn" onclick="window.open('manage_answer.html', '_blank')">Manage Answer</button></h3>
     </main>
 </body>
 
