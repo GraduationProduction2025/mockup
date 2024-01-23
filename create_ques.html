@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,17 +89,18 @@
     }
   </style>
 </head>
+
 <body>
 
   <form action="#" method="post" id="questionForm">
-    <h2>Create your form</h2>
+    <h2>質問作成</h2>
 
     <div id="questionsContainer"></div>
-    
-    <button type="button" class="add-question-btn" onclick="addQuestion()">Add Question</button>
-    <button type="button" class="delete-question-btn" onclick="deleteQuestion()">Delete Question</button>
-    <button type="button" class="preview-btn" onclick="previewForm()">Preview</button>
-    <button type="submit" class="add-question-btn">Create Form</button>
+
+    <button type="button" class="add-question-btn" onclick="addQuestion()">質問追加</button>
+    <button type="button" class="delete-question-btn" onclick="deleteQuestion()">質問削除</button>
+    <button type="button" class="preview-btn" onclick="previewForm()">プレビュー</button>
+    <button type="submit" class="add-question-btn">フォーム作成</button>
 
     <div id="formPreview" class="form-preview"></div>
   </form>
@@ -112,23 +114,23 @@
       questionContainer.className = 'question-container';
 
       var questionLabel = document.createElement('label');
-      questionLabel.innerHTML = 'Question ' + questionCount + ':';
+      questionLabel.innerHTML = '質問 ' + questionCount + ':';
       questionContainer.appendChild(questionLabel);
 
       var questionInput = document.createElement('input');
       questionInput.type = 'text';
       questionInput.name = 'question' + questionCount;
-      questionInput.placeholder = 'Enter your question';
+      questionInput.placeholder = '質問タイトル';
       questionInput.required = true;
       questionContainer.appendChild(questionInput);
 
       var questionTypeLabel = document.createElement('label');
-      questionTypeLabel.innerHTML = 'Question Type:';
+      questionTypeLabel.innerHTML = '質問形式：';
       questionContainer.appendChild(questionTypeLabel);
 
       var questionTypeSelect = document.createElement('select');
       questionTypeSelect.name = 'questionType' + questionCount;
-      questionTypeSelect.addEventListener('change', function() {
+      questionTypeSelect.addEventListener('change', function () {
         var optionsContainer = questionContainer.querySelector('.options-container');
         if (this.value === 'checkbox' || this.value === 'radio') {
           optionsContainer.style.display = 'block';
@@ -152,13 +154,13 @@
       optionsContainer.className = 'options-container';
 
       var optionsLabel = document.createElement('label');
-      optionsLabel.innerHTML = 'Options (comma-separated):';
+      optionsLabel.innerHTML = 'オプション(カンマ区切り): ';
       optionsContainer.appendChild(optionsLabel);
 
       var optionsInput = document.createElement('input');
       optionsInput.type = 'text';
       optionsInput.name = 'options' + questionCount;
-      optionsInput.placeholder = 'Option 1, Option 2, Option 3';
+      optionsInput.placeholder = 'オプション1,オプション2,オプション3,…';
       optionsContainer.appendChild(optionsInput);
 
       questionContainer.appendChild(optionsContainer);
@@ -166,8 +168,8 @@
       var deleteBtn = document.createElement('button');
       deleteBtn.type = 'button';
       deleteBtn.className = 'delete-question-btn';
-      deleteBtn.innerHTML = 'Delete';
-      deleteBtn.onclick = function() {
+      deleteBtn.innerHTML = '削除';
+      deleteBtn.onclick = function () {
         questionsContainer.removeChild(questionContainer);
         updateQuestionNumbers();
         updatePreview();
@@ -193,7 +195,7 @@
       var questions = questionsContainer.getElementsByClassName('question-container');
       for (var i = 0; i < questions.length; i++) {
         var questionLabel = questions[i].querySelector('label');
-        questionLabel.innerHTML = 'Question ' + (i + 1) + ':';
+        questionLabel.innerHTML = '質問 ' + (i + 1) + ':';
       }
     }
 
@@ -205,7 +207,7 @@
       var formPreview = document.getElementById('formPreview');
       var questionsContainer = document.getElementById('questionsContainer');
 
-      formPreview.innerHTML = '<h3>Form Preview</h3>';
+      formPreview.innerHTML = '<h3>フォームプレビュー</h3>';
 
       for (var i = 0; i < questionsContainer.children.length; i++) {
         var question = questionsContainer.children[i];
@@ -215,7 +217,7 @@
 
         var questionType = question.querySelector('select').value;
         if (questionType === 'checkbox' || questionType === 'radio') {
-          var options = question.querySelector('input[name^="options"]').value.split(',').map(function(option) {
+          var options = question.querySelector('input[name^="options"]').value.split(',').map(function (option) {
             return option.trim();
           });
 
@@ -228,13 +230,5 @@
   </script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
