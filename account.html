@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wicth=device-width, initial-scale=1">
+    <title>新規登録</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            width: 50%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container #username,
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .pass {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .add{
+            background-color: #4285f4;
+            color: white;
+            cursor: pointer;
+        }
+        .add:hover {
+            background-color: #1967d2;
+        }
+
+        .login-container .password-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .login-container .password-container span {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>アカウント作成</h2>
+        <form>
+            <label for="username">ユーザー名</label>
+            <input type="text" id="username" name="username">
+
+            <label for="password">パスワード</label>
+            <div class="password-container">
+                <input type="password" class="pass" id="password1" name="password1">
+                <span id="me" class="toggle-text1" onclick="togglePasswordVisibility1()">👁</span>
+            </div>
+
+            <label for="confirmPassword">パスワード再確認</label>
+            <div class="password-container">
+                <input type="password" class="pass" id="password2" name="password2">
+                <span id="me" class="toggle-text2" onclick="togglePasswordVisibility2()">👁</span>
+            </div>
+
+            <input type="submit" class="add" value="登録">
+            <input type="submit" class="exit" value="閉じる">
+
+            <script>
+                function togglePasswordVisibility1() {
+                    var passwordInput1 = document.getElementById('password1');
+                    var toggleText1 = document.querySelector('.toggle-text1');
+
+                    if (passwordInput1.type === 'password') {
+                        passwordInput1.type = 'text';
+                        toggleText1.textContent = '⌣';
+                    } else {
+                        passwordInput1.type = 'password';
+                        toggleText1.textContent = '👁';
+                    }
+                }
+
+                function togglePasswordVisibility2() {
+                    var passwordInput = document.getElementById('password2');
+                    var toggleText = document.querySelector('.toggle-text2');
+
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        toggleText.textContent = '⌣';
+                    } else {
+                        passwordInput.type = 'password';
+                        toggleText.textContent = '👁';
+                    }
+                }
+            </script>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+/*account.html*/
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    text-align: left;
+    width: 300px;
+}
+
+.form-container label,
+.form-container input {
+    display: block;
+    /*margin: 10px auto;*/
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add/*form-container button*/ {
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+    width: auto;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.exit/*form-container button*/ {
+    display: block;
+    margin: 0px 0px 0px 240px;
+    padding: 8px;
+    width: auto;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.add{
+    color: white;
+    background-color: cornflowerblue;
+}
+
+.exit{
+    display: block;
+    text-align: right;
+}
+
+.form-container .password-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-container .password-container input {
+    flex: 1;
+}
+
