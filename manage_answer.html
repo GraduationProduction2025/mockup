@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="wicth=device-width, initial-scale=1">
+	<title>集計</title>
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f8f8f8;
+		}
+
+		.title-bar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+			padding: 10px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.title-bar h1 {
+			margin: 0;
+			font-size: 24px;
+		}
+
+		.custom-box {
+			width: 80%;
+            margin: auto;
+            overflow-x: auto;
+		}
+
+		.buttons{
+            margin: 0; /* マージンをリセット */
+        }
+
+		.kai{
+			background-color: #fff;
+			padding: 1px 25px;
+		}
+
+		.graph {
+			list-style: none;
+			padding: 0;
+			margin: auto;
+			display: flex;
+			align-items: center/*flex-start*/;
+			justify-content: center;
+		}
+
+		.legend {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		.legend-item {
+			display: flex;
+			align-items: center;
+			margin-bottom: 5px;
+		}
+
+		.legend-color {
+			width: 20px;
+			height: 20px;
+			margin-right: 5px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="custom-box">
+		<div class="title-bar">
+			<h1>回答集計</h1>
+		</div>
+		<div class="buttons">
+            <h3>top > 質問一覧 > 回答集計 </h3>
+        </div>
+
+		<div class="kai">
+			<h1>好きな食べ物</h1>
+			<p>100件の回答</p>
+
+			<div class="graph">
+				<canvas id="myCanvas" width="400" height="300"></canvas>
+
+				<ul class="legend" id="legend">
+					<!-- 凡例はスクリプトで追加 -->
+				</ul>
+			</div>
+		</div>
+
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var context = canvas.getContext('2d');
+		
+			var data = [0.45, 0.28, 0.15, 0.12]; // 青、緑、赤、オレンジの割合
+			var colors = ['#3498db', '#2ecc71', '#e74c3c', '#f39c12']; // 青、緑、赤、オレンジの色
+		
+			function drawPieChart(data, colors) {
+			  var x = canvas.width / 2;
+			  var y = canvas.height / 2;
+			  var radius = Math.min(x, y) - 10;
+		
+			  var startAngle = -0.5 * Math.PI; // 12時の位置から開始
+			  var endAngle = 0;
+		
+			  var legend = document.getElementById('legend');
+		
+			  for (var i = 0; i < data.length; i++) {
+				endAngle = startAngle + (data[i] * 2 * Math.PI);
+		
+				// セクションの色を指定
+				var color = colors[i];
+				context.fillStyle = color;
+		
+				// 円弧を描く
+				context.beginPath();
+				context.moveTo(x, y);
+				context.arc(x, y, radius, startAngle, endAngle);
+				context.closePath();
+				context.fill();
+		
+				// パーセンテージを表示
+				var textAngle = startAngle + (data[i] * Math.PI); // セクションの中央角度
+				var textX = x + Math.cos(textAngle) * radius * 0.7; // 中央座標のX
+				var textY = y + Math.sin(textAngle) * radius * 0.7; // 中央座標のY
+				context.fillStyle = '#000'; // テキストの色
+				context.font = '12px Arial';
+				context.textAlign = 'center';
+				context.fillText((data[i] * 100).toFixed(1) + '%', textX, textY);
+		
+				// 凡例を追加
+				addLegendItem(legend, color, i);
+		
+				// 次のセクションの開始角度を設定
+				startAngle = endAngle;
+			  }
+			}
+		
+			function addLegendItem(legend, color, index) {
+			  var legendItem = document.createElement('li');
+			  legendItem.className = 'legend-item';
+		
+			  var legendColor = document.createElement('div');
+			  legendColor.className = 'legend-color';
+			  legendColor.style.backgroundColor = color;
+		
+			  var legendText = document.createElement('span');
+			  legendText.textContent = getColorLabel(index);
+		
+			  legendItem.appendChild(legendColor);
+			  legendItem.appendChild(legendText);
+		
+			  legend.appendChild(legendItem);
+			}
+
+			function getColorLabel(index) {
+			var labels = ['いぶりがっこ', '塩昆布', '煮干し', 'ミ＝ゴ'];
+			return labels[index];
+			}
+
+			drawPieChart(data, colors);
+		</script>
+	</div>
+</body>
+</html>
