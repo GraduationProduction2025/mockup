@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list_ques</title>
+    <link rel="stylesheet" type="text/css" href="style_Ito.css">
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow-x: auto;
+    }
+
+    .scrollable-table {
+        max-height: 400px; /* Set the max height as needed */
+        overflow-y: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        position: sticky;
+        top: 0;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .title-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .title-bar h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-bottom: 16px 
+    }
+    
+    .buttons h3 {
+        margin: 0; /* マージンをリセット */
+    }
+
+    .buttons button {
+        margin-left: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .buttons .right-button {
+        margin-left: auto;
+    }
+
+    .checkbox-column {
+        width: 40px;
+        text-align: center;
+    }
+</style>
+<body>
+<div class="container">
+    
+
+        <div class="title-bar">
+            <h1>質問一覧</h1>
+            
+        </div>
+        <div class="buttons">
+            <h3>top > 質問一覧 </h3>
+            <button class="right-button">編集</button>
+            <button>削除</button>
+        </div>
+        <div class="scrollable-table">
+        <table>
+            <tr>
+                <th class="checkbox-column"></th>
+                <th>ステータス</th>
+                <th>質問タイトル</th>
+                <th>URL</th>
+                <th>作成日</th>
+                <th>ユーザー</th>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>新入社員アンケート</td>
+                <td><a href="http://www.example.com/survey1">http://www.example.com/survey1</a></td>
+                <td>2023/01/15</td>
+                <td>田中花子</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>希望部署についての質問</td>
+                <td><a href="http://www.example.com/department-question">http://www.example.com/department-question</a></td>
+                <td>2023/01/20</td>
+                <td>鈴木健太</td>
+            </tr>
+            <!-- Add more rows as needed -->
+            <!-- ... -->
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>プロジェクトに関する質問</td>
+                <td><a href="http://www.example.com/project-inquiry">http://www.example.com/project-inquiry</a></td>
+                <td>2023/02/20</td>
+                <td>山口智子</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>社内イベントアンケート</td>
+                <td><a href="http://www.example.com/event-survey">http://www.example.com/event-survey</a></td>
+                <td>2023/03/05</td>
+                <td>吉田康夫</td>
+            </tr>
+            <!-- Add more rows as needed -->
+            <!-- ... -->
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>技術書の推薦</td>
+                <td><a href="http://www.example.com/tech-book-recommendation">http://www.example.com/tech-book-recommendation</a></td>
+                <td>2023/03/10</td>
+                <td>伊藤美咲</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>給与改定に関するアンケート</td>
+                <td><a href="http://www.example.com/salary-survey">http://www.example.com/salary-survey</a></td>
+                <td>2023/03/15</td>
+                <td>高橋悠太</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>技術書の推薦</td>
+                <td><a href="http://www.example.com/tech-book-recommendation">http://www.example.com/tech-book-recommendation</a></td>
+                <td>2023/03/10</td>
+                <td>伊藤美咲</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>給与改定に関するアンケート</td>
+                <td><a href="http://www.example.com/salary-survey">http://www.example.com/salary-survey</a></td>
+                <td>2023/03/15</td>
+                <td>高橋悠太</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>技術書の推薦</td>
+                <td><a href="http://www.example.com/tech-book-recommendation">http://www.example.com/tech-book-recommendation</a></td>
+                <td>2023/03/10</td>
+                <td>伊藤美咲</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>給与改定に関するアンケート</td>
+                <td><a href="http://www.example.com/salary-survey">http://www.example.com/salary-survey</a></td>
+                <td>2023/03/15</td>
+                <td>高橋悠太</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>技術書の推薦</td>
+                <td><a href="http://www.example.com/tech-book-recommendation">http://www.example.com/tech-book-recommendation</a></td>
+                <td>2023/03/10</td>
+                <td>伊藤美咲</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>給与改定に関するアンケート</td>
+                <td><a href="http://www.example.com/salary-survey">http://www.example.com/salary-survey</a></td>
+                <td>2023/03/15</td>
+                <td>高橋悠太</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>技術書の推薦</td>
+                <td><a href="http://www.example.com/tech-book-recommendation">http://www.example.com/tech-book-recommendation</a></td>
+                <td>2023/03/10</td>
+                <td>伊藤美咲</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>給与改定に関するアンケート</td>
+                <td><a href="http://www.example.com/salary-survey">http://www.example.com/salary-survey</a></td>
+                <td>2023/03/15</td>
+                <td>高橋悠太</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成中</td>
+                <td>技術書の推薦</td>
+                <td><a href="http://www.example.com/tech-book-recommendation">http://www.example.com/tech-book-recommendation</a></td>
+                <td>2023/03/10</td>
+                <td>伊藤美咲</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td>作成済み</td>
+                <td>給与改定に関するアンケート</td>
+                <td><a href="http://www.example.com/salary-survey">http://www.example.com/salary-survey</a></td>
+                <td>2023/03/15</td>
+                <td>高橋悠太</td>
+            </tr>
+            <!-- Add your table rows here -->
+        </table>
+    </div>
+</div>
+</body>
+</html>
