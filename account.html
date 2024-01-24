@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="wicth=device-width, initial-scale=1">
-    <title>新規登録</title>
+    <title>account</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,6 +15,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
         }
 
         .login-container {
@@ -44,11 +49,12 @@
             box-sizing: border-box;
         }
 
-        .add{
+        .add {
             background-color: #4285f4;
             color: white;
             cursor: pointer;
         }
+
         .add:hover {
             background-color: #1967d2;
         }
@@ -62,13 +68,17 @@
             margin-bottom: 10px;
         }
 
+        .warning {
+            color: red;
+            margin-top: 5px;
+        }
     </style>
 </head>
 
 <body>
     <div class="login-container">
-        <h2>アカウント作成</h2>
-        <form>
+        <h1>アカウント作成</h1>
+        <form onsubmit="return validateForm()">
             <label for="username">ユーザー名</label>
             <input type="text" id="username" name="username">
 
@@ -83,6 +93,8 @@
                 <input type="password" class="pass" id="password2" name="password2">
                 <span id="me" class="toggle-text2" onclick="togglePasswordVisibility2()">👁</span>
             </div>
+
+            <div class="warning" id="passwordMismatchWarning"></div>
 
             <input type="submit" class="add" value="登録">
             <input type="submit" class="exit" value="閉じる">
@@ -111,6 +123,29 @@
                     } else {
                         passwordInput.type = 'password';
                         toggleText.textContent = '👁';
+                    }
+                }
+
+                function validateForm() {
+                    var username = document.getElementById('username').value;
+                    var password1 = document.getElementById('password1').value;
+                    var password2 = document.getElementById('password2').value;
+                    var warning = document.getElementById('passwordMismatchWarning');
+
+                    if (username === ""){
+                        warning.textContent = 'ユーザー名を入力してください。';
+                        return false;
+                    }
+                    if (password1 === "" || password2 === "") {
+                        warning.textContent = 'パスワードを入力してください。';
+                        return false;
+                    }
+                    if (password1 !== password2) {
+                        warning.textContent = 'パスワードが一致しません。';
+                        return false;
+                    } else {
+                        warning.textContent = '';
+                        return true;
                     }
                 }
             </script>
