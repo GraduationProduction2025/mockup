@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>login</title>
@@ -15,12 +16,19 @@
             align-items: center;
             height: 100vh;
         }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
         .login-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .login-container input[type="text"],
         .login-container input[type="password"],
         .login-container input[type="submit"] {
@@ -31,19 +39,22 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
+
         .login-container input[type="submit"] {
             background-color: #4285f4;
             color: white;
             cursor: pointer;
         }
+
         .login-container input[type="submit"]:hover {
             background-color: #4285f4;
         }
     </style>
 </head>
+
 <body>
     <div class="login-container">
-        <h2>ログイン</h2>
+        <h1>ログイン</h1>
         <form>
             <label for="username">ユーザー名</label>
             <input type="text" id="username" name="username" required>
@@ -54,8 +65,8 @@
             <label for="remember">ログインを記憶</label>
         </form>
         <p id="error-message" style="color: red; display: none;">※パスワードが違います</p>
-        <p><a href="#">新規作成</a></p>
+        <p><a href="account.html">新規作成</a></p>
     </div>
 </body>
-</html>
 
+</html>
