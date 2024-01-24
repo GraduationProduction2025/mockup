@@ -110,7 +110,7 @@
 	<div class="custom-box">
 		<h1>回答集計</h1>
 		<div class="buttons">
-			<button class="right-button">戻る</button>
+			<button id="backButton" class="right-button">一覧に戻る</button>
 		</div>
 		<div class="kai">
 			<h2>好きな食べ物</h2>
@@ -226,6 +226,10 @@
 			}
 
 			drawPieChart(data, colors);
+			document.getElementById('backButton').addEventListener('click', function () {
+				// list_ques.htmlに遷移
+				window.location.href = 'list_ques.html';
+			});
 		</script>
 	</div>
 </body>
