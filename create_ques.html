@@ -18,6 +18,7 @@
     }
 
     form {
+      width: 50%;
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
@@ -100,7 +101,8 @@
     <div id="questionsContainer"></div>
 
     <button type="button" class="add-question-btn" onclick="addQuestion()">質問追加</button>
-    <button type="button" class="delete-question-btn" onclick="deleteQuestion()">質問削除</button>
+    <!-- 削除ボタンを削除 -->
+    <!-- <button type="button" class="delete-question-btn" onclick="deleteQuestion()">質問削除</button> -->
     <button type="button" class="preview-btn" onclick="previewForm()">プレビュー</button>
     <button type="submit" class="add-question-btn">フォーム作成</button>
 
@@ -183,14 +185,7 @@
       updatePreview();
     }
 
-    function deleteQuestion() {
-      var questionsContainer = document.getElementById('questionsContainer');
-      if (questionsContainer.children.length > 0) {
-        questionsContainer.removeChild(questionsContainer.lastChild);
-        updateQuestionNumbers();
-        updatePreview();
-      }
-    }
+    // deleteQuestion 関数を削除
 
     function updateQuestionNumbers() {
       var questionsContainer = document.getElementById('questionsContainer');
