@@ -164,10 +164,11 @@
         <label for="comment">コメント</label>
         <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
 
-        <input type="submit" value="回答する" onclick="saveDataToCookie()">
+
+        <input type="submit" value="回答する" onclick="saveDataToCookieAndRedirect()">
     </div>
     <script>
-        function saveDataToCookie() {
+        function saveDataToCookieAndRedirect() {
             // 各入力フィールドの値を取得
             var age = document.getElementById('age').value;
             var birthplace = document.getElementsByName('ken')[0].value;
@@ -186,6 +187,9 @@
             console.log("Birthplace: " + birthplace);
             console.log("Gender: " + gender);
             console.log("Comment: " + comment);
+
+            // リダイレクト
+            window.location.href = 'list_ques.html';
         }
     </script>
 </body>
