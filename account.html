@@ -67,7 +67,7 @@
         .login-container .password-container span {
             margin-bottom: 10px;
         }
-      
+
         .warning {
             color: red;
             margin-top: 5px;
@@ -97,7 +97,7 @@
             <div class="warning" id="passwordMismatchWarning"></div>
 
             <input type="submit" class="add" value="登録">
-            <input type="submit" class="exit" value="閉じる">
+            <input type="submit" class="exit" value="閉じる" onclick="window.open('login.html')">
 
             <script>
                 function togglePasswordVisibility1() {
@@ -132,7 +132,7 @@
                     var password2 = document.getElementById('password2').value;
                     var warning = document.getElementById('passwordMismatchWarning');
 
-                    if (username === ""){
+                    if (username === "") {
                         warning.textContent = 'ユーザー名を入力してください。';
                         return false;
                     }
